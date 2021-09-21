@@ -5,10 +5,12 @@
     * `sftp` stands for "secure file transfer protocol"
 3. Type `yes` to a prompted command about something fingerprint (I think it doesn't recognize a new computer in the system)
 4. Enter the password provided by Genewiz (Sarah found out that you can copy and paste the password)
-5. Set up the local directory where you want to download these files into
-    * `lcd /datacommons/noor2/lethal_seq/2021_09_21_fastq`
-6. Navigate through sftp folders until you reach the directory that contains all fastq files
-7. There are two ways to download the files:
+5. Set up the local directory where you want to download these files into.
+```
+    lcd /datacommons/noor2/lethal_seq/2021_09_21_fastq
+```
+7. Navigate through sftp folders until you reach the directory that contains all fastq files
+8. There are two ways to download the files:
     a. Download all files within the project folder using `mget *` 
     b. Download the folder AND everything within that folder by using **recursive** command `get -r Parent_folder`
     
