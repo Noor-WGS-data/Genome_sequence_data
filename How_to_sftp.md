@@ -18,6 +18,6 @@ For detailed instructions go [here.](https://f.hubspotusercontent00.net/hubfs/34
 ## Tips
 If you are working on DCC's shared space, and need a writing permission to download the files. You, or the owner of the directory, need to change the permission of the directory to "writable" for everyone. 
 
-    `chmod -R 777 Folder_name`
+    chmod -R 777 Folder_name
 
 This command line will fully open access to all users.
