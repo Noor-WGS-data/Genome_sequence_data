@@ -19,8 +19,8 @@
 ```
 7. Navigate through sftp folders until you reach the directory that contains all fastq files
 8. There are two ways to download the files:
-    a. Download all files within the project folder using `mget *` 
-    b. Download the folder AND everything within that folder by using **recursive** command `get -r Parent_folder`
+    * Download all files within the project folder using `mget *` 
+    * Download the folder AND everything within that folder by using **recursive** command `get -r Parent_folder`
     
     
 For detailed instructions go [here.](https://f.hubspotusercontent00.net/hubfs/3478602/Sell%20Sheet%20Collateral%20Library/NGS/NGS%20User%20Guides/NGS_sFTP-Data-Download-Guide_Option%201_Nov03_2020.pdf)
