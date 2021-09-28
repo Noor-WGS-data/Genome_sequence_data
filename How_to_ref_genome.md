@@ -1,5 +1,7 @@
-# How to Setup Your Reference Genome 
-###### tags: `tutorials` `reference genome` 
+# How to Setup Your Reference Genome using GATK
+###### tags: `tutorials` `reference genome` `GATK`
+
+Use this (i.e. steps 3 and above) if you are planning to create a uBAM first and use GATK BwaAndMarkDuplicatesPipelineSpark to align with the reference genome.
 
 ## Step 1: Get your reference genome from FlyBase onto the Cluster
 1. Go to this link: [http://ftp.flybase.net/genomes/](http://ftp.flybase.net/genomes/).
@@ -21,7 +23,14 @@ Then enter the following text into the terminal (once logged onto the cluster). 
 ```
 module load GATK/4.1.9.0
 ```
-*Note: You may get a message that you need to use the command java -jar $GATK to use GATK rather than just writing GATK. If you don't feel like typing all that out, we think there is a way to make an alias...
+**Note:** You may get a message that you need to use the command `java -jar $GATK` to use GATK rather than just writing `gatk`. If you don't feel like typing all that out, there is an option to make an alias for the command. To do so, type in:
+
+```
+alias shortName="the full/custom command here"
+```
+Make sure you have 
+
+
 
 **2. Samtools**
 
