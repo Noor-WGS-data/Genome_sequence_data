@@ -14,18 +14,14 @@
 
 Any software you are loading from DCC, you will need to load at the beginning of each session you're using it(i.e. if you load any module from DCC then log off of the cluster entirely, you'll have to load it again when you get back on.) Luckily, it's super easy to load modules from DCC :) 
 
-**1. GATK**: All you need to do is type ```module avail``` and hit enter. This should give you a list of all modules available on the DCC and will tell you exactly which version of GATK to load. 
+**1. BWA**: All you need to do is type ```module avail``` and hit enter. This should give you a list of all modules available on the DCC and will tell you exactly which version of BWA to load. 
 
-Then enter the following text into the terminal (once logged onto the cluster). You may need to change the specific version of GATK depending on what is offered at the time you're using this.
-
-```
-module load GATK/4.1.9.0
-```
-**Note:** You may get a message that you need to use the command `java -jar $GATK` to use GATK rather than just writing `gatk`. If you don't feel like typing all that out, there is an option to make an alias for the command. To do so, type in:
+Then enter the following text into the terminal (once logged onto the cluster). You may need to change the specific version of BWA depending on what is offered at the time you're using this.
 
 ```
-alias shortName="the full/custom command here"
+module load BWA/0.7.17
 ```
+
 
 ## Step 3. Make an index for reference genome using BWA
 
