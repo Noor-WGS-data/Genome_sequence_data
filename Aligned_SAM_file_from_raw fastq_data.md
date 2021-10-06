@@ -1,4 +1,4 @@
-# 4. Align uBAM with reference genome
+# 5. Align uBAM with reference genome
 ###### tags: `2. Main Steps` `tutorials` `fastq` `aligned SAM`
 > Required software: BWA
 
