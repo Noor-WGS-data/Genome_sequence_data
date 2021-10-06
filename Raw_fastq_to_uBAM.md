@@ -1,4 +1,6 @@
-# 2. Raw fastq to uBAM and preparing uBAM for alignment
+# 3. Raw fastq to uBAM and preparing uBAM for alignment
+
+###### tags: `2. Main Steps` 
 
 ### Step 1. Convert fastq to uBAM
 
