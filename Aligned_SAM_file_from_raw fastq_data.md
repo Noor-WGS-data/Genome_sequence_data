@@ -1,5 +1,5 @@
 # 5. Align uBAM with reference genome
-###### tags: `2. Main Steps` `tutorials` `fastq` `aligned SAM`
+###### tags: `2. Main Steps` `tutorials` `aligned BAM`
 > Required software: BWA
 
 ## Step 1: Write .sh script  that loops through all sets of forward and reverse fastq files
