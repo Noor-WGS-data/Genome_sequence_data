@@ -1,5 +1,7 @@
-# How to Setup Your Reference Genome using BWA
-###### tags: `tutorials` `reference genome` `BWA`
+# 4. Setup Your Reference Genome using BWA
+###### tags: `2. Main Steps` `tutorials` `reference genome` 
+
+> Program required: BWA
 
 ## Step 1: Get your reference genome from FlyBase onto the Cluster
 1. Go to this link: [http://ftp.flybase.net/genomes/](http://ftp.flybase.net/genomes/).
