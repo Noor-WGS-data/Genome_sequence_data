@@ -1,4 +1,4 @@
-# 4. Setup Your Reference Genome using BWA
+# 4. Setup Your Reference Genome using BWA and GATK
 ###### tags: `2. Main Steps` `tutorials` `reference genome` 
 
 > Program required: BWA and GATK
