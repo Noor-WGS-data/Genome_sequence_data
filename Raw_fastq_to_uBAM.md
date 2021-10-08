@@ -1,4 +1,4 @@
-# 3. Raw fastq to uBAM and preparing uBAM for alignment
+# 3. Raw fastq to uBAM, mark adapters and convert back to an interleaved fastq
 
 ###### tags: `2. Main Steps` 
 
@@ -55,4 +55,3 @@ java -jar $GATK MarkIlluminaAdapters \
 -O ../data/2021_09_21_fastq/uBAMs/unmapped_adapter_L${LL}.bam \
 --TMP_DIR /work/$USER
 ```
-
