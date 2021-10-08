@@ -1,7 +1,7 @@
 # 4. Setup Your Reference Genome using BWA
 ###### tags: `2. Main Steps` `tutorials` `reference genome` 
 
-> Program required: BWA
+> Program required: BWA and GATK
 
 ## Step 1: Get your reference genome from FlyBase onto the Cluster
 1. Go to this link: [http://ftp.flybase.net/genomes/](http://ftp.flybase.net/genomes/).
@@ -45,3 +45,74 @@ bwa index ../ref/dmel-all-chromosome-r6.41.fasta dmel-all-chromosome-r6.41.fasta
 ```
 2. In this same directory, type: `sbatch name_of_your_file.sh` and hit enter. 
 3. You will see many files output in the same directory that contains your reference genome (they will all contain the prefix of the name of your fasta file and .fasta (e.g. the previx is dmel-all-chromosome-r6.41.fasta). The prefix is important later on in the bwa mem step!
+
+## Step 4: Make an index for reference genome using GATK
+
+
+### A: Construct Dictionary
+
+Run this code in `code` directory. 
+```
+#!/bin/bash
+#SBATCH -e slurm-%j.err
+#SBATCH -o slurm-%j.out
+#SBATCH -p common
+#SBATCH --mem=1G
+
+module load GATK/4.1.9.0
+
+#this script takes a fasta genome reference file and produces a dictionary of contig names
+#Uses a tool from Picard within GATK4 called CreateSequenceDictionary
+#-R=reference_file.fasta
+#-O=output_file_name.dict
+
+java -jar $GATK CreateSequenceDictionary -R ../ref/dmel-all-chromosome-r6.41.fasta -O ../ref/dmel-all-chromosome-r6.41.dict
+```
+
+
+**Don't panic** if you get an info error (see below) that failed to detect whether we are running on Google Compute Engine, according to this [link](https://github.com/broadinstitute/gatk/issues/6875).
+```
+Sep 23, 2021 2:45:39 PM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+```
+
+### B: Construct an index file
+
+```
+#!/bin/bash
+#SBATCH -e slurm-%j.err
+#SBATCH -o slurm-%j.out
+#SBATCH -p common
+#SBATCH --mem=1G
+
+module load GATK/4.1.9.0
+
+#this script takes a fasta genome reference file and makes a copy of it in index form
+#Uses a tool from SAMtools called faidx
+#because SAMtools is not in your directory, you will need to temporarily add it to your PATH so you can run it outside of the SAMtools directory
+
+#PATH=$PATH:/opt/apps/rhel7/samtools-1.9/bin
+
+samtools faidx ../ref/dmel-all-chromosome-r6.41.fasta -o ../ref/test.fai
+
+```
+
+### C. Make an image 
+```
+#!/bin/bash
+#SBATCH -e slurm-%j.err
+#SBATCH -o slurm-%j.out
+#SBATCH -p common
+#SBATCH --mem=1G
+
+module load GATK/4.1.9.0
+
+#This script creates an index image file (?) of the reference sequence
+#It's required for any BWA tools within GATK, like BwaSpark
+#where -I-input file (reference), -O-output file (assumed same name, but with .img extension)
+
+
+java -jar $GATK BwaMemIndexImageCreator -I ../ref/dmel-all-chromosome-r6.41.fasta -O ../ref/dmel-all-chromosome-r6.41.fasta.img
+
+```
+Took somewhat longer to run (2-3 minutes(?))
